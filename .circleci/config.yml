@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run:
           name: chmod permissions
-          command: chmod 777-r /var/www/html/
+          command: chmod 777 -R /var/www/html/
       - run:
           name: Actualizar repositorio
           command: apt-get update -y sudo
