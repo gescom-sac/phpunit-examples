@@ -14,6 +14,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: chmod permissions
+          command: chmod +x /var/www/html/
+      - run:
           name: Actualizar repositorio
           command: apt-get update -y sudo
       - run:
