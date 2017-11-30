@@ -22,19 +22,19 @@ jobs:
       - run:
           name: Actualizar repositorio
           command: apt-get update -y sudo
-          
+
        - run:
           name: Install curl
           command: apt-get install curl -y sudo
-          
+
        - run:
           name: Install getcomposer
           command: curl -s https://getcomposer.org/installer | php -y sudo
-          
+
        - run:
           name: Move the composer.phar
-          command: mv composer.phar /usr/local/bin/composer -y sudo        
-                  
+          command: mv composer.phar /usr/local/bin/composer -y sudo
+
       # Download and cache dependencies
       - restore_cache:
           keys:
@@ -48,7 +48,7 @@ jobs:
           paths:
             - ./vendor
           key: v1-dependencies-{{ checksum "composer.json" }}
-          
+
        - run:
           name: run test unit
           command: vendor/bin/phpunit --bootstrap ./tests/bootstrap.php tests
