@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run:
           name: chmod permissions
-          command: chmod 777 -R /var/www/html/
+          command: chown -R circleci:circleci /var/www
       - run:
           name: Actualizar repositorio
           command: apt-get update -y sudo
