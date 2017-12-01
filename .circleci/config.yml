@@ -12,6 +12,9 @@ jobs:
       # - image: circleci/mysql:9.4
     working_directory:  /var/www/html
     steps:
+      - run:
+          name: chmod permissions
+          command: chown -R circleci:circleci /var/www/html
       - checkout
       - run:
           name: chmod permissions
