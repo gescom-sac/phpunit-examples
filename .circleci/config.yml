@@ -25,11 +25,11 @@ jobs:
 
       - run:
           name: Install getcomposer
-          command: sudo curl -s https://getcomposer.org/installer | php
+          command: sudo php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 
       - run:
           name: Move the composer.phar
-          command: sudo mv composer.phar /usr/local/bin/composer
+          command: sudo php composer-setup.php
       # Download and cache dependencies
       - restore_cache:
           keys:
