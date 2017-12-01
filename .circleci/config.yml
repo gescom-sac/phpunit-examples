@@ -36,7 +36,7 @@ jobs:
           - v1-dependencies-{{ checksum "composer.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-      - run: sudo composer install -n --prefer-dist
+      - run: sudo composer install --dev --no-interaction
       - save_cache:
           paths:
             - ./vendor
