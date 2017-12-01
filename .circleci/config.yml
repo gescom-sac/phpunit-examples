@@ -14,7 +14,7 @@ jobs:
     steps:
       - run:
           name: chmod permissions
-          command: chown -R circleci:circleci /var/www/html -y sudo
+          command: sudo chown -R circleci:circleci /var/www/html
       - checkout
       - run:
           name: chmod permissions
