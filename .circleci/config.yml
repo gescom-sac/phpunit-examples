@@ -21,22 +21,22 @@ jobs:
           command: sudo chown -R circleci:www-data /var/www/html && chmod -R g+sw /var/www/html      
       - run:
           name: Install curl
-          command: apt-get install curl -y sudo
+          command: sudo apt-get install curl
 
       - run:
           name: Install getcomposer
-          command: curl -s https://getcomposer.org/installer | php -y sudo
+          command: sudo curl -s https://getcomposer.org/installer | php
 
       - run:
           name: Move the composer.phar
-          command: mv composer.phar /usr/local/bin/composer -y sudo
+          command: sudo mv composer.phar /usr/local/bin/composer
       # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "composer.json" }}
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
-      - run: composer install -n --prefer-dist
+      - run: sudo composer install -n --prefer-dist
       - save_cache:
           paths:
             - ./vendor
